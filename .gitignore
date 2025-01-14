@@ -34,14 +34,16 @@
 /.vs
 
 *.pdb
-/Pix/packages/Microsoft.XAudio2.Redist.1.2.4
+/Pix/.vs/X
 /Pix/Pix/Debug
 /Pix/Pix/Release
 /Pix/Pix/x64
 /Pix/X/Debug
-/Pix/X/External/DirectXTK/Audio/Bin/Desktop_2019/Win32
-/Pix/X/External/DirectXTK/Audio/Bin/Desktop_2019/x64
+/Pix/X/External/DirectXTK/Audio/Bin
 /Pix/X/External/DirectXTK/Bin/Desktop_2019
 /Pix/X/External/FW1FontWrapper/Debug
 /Pix/X/External/FW1FontWrapper/Release
 /Pix/X/External/FW1FontWrapper/x64
+/Pix/X/External/ImGui/x64
+/Pix/X/x64
+/Pix/x64/Debug

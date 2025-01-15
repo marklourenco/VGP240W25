@@ -4,6 +4,7 @@
 #include "CmdSetResolution.h"
 #include "CmdVarFloat.h"
 #include "CmdSetColor.h"
+#include "CmdSetFillMode.h"
 
 #include "CmdBeginDraw.h"
 #include "CmdEndDraw.h"
@@ -28,6 +29,7 @@ CommandDictionary::CommandDictionary()
 	// Rasterization commands
 	RegisterCommand<CmdDrawPixel>();
 	RegisterCommand<CmdSetColor>();
+	RegisterCommand<CmdSetFillMode>();
 
 	// Primitives commands
 	RegisterCommand<CmdBeginDraw>();

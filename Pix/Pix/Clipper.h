@@ -10,7 +10,8 @@ public:
 	void OnNewFrame();
 
 	bool ClipPoint(const Vertex& v);
-	bool ClipLine(const Vertex& a, const Vertex& b);
+	bool ClipLine(Vertex& a, Vertex& b);
+	bool ClipTriangle(std::vector<Vertex>& vertices);
 
 	bool IsClipping() const;
 	void SetClipping(bool clip);

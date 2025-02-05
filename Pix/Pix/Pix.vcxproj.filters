@@ -132,6 +132,15 @@
     <ClCompile Include="CmdSetClipping.cpp">
       <Filter>Commands</Filter>
     </ClCompile>
+    <ClCompile Include="MatrixStack.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="CmdMatrix.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextEditor.h">
@@ -214,6 +223,15 @@
     </ClInclude>
     <ClInclude Include="Matrix4.h">
       <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="MatrixStack.h">
+      <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdMatrix.h">
+      <Filter>Commands</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -13,6 +13,7 @@
 #include "CmdSetViewport.h"
 #include "CmdShowViewport.h"
 #include "CmdSetClipping.h"
+#include "CmdMatrix.h"
 
 CommandDictionary* CommandDictionary::Get()
 {
@@ -44,6 +45,14 @@ CommandDictionary::CommandDictionary()
 	RegisterCommand<CmdSetViewport>();
 	RegisterCommand<CmdShowViewport>();
 	RegisterCommand<CmdSetClipping>();
+
+	// Matrix commands
+	RegisterCommand<CmdPushTranslation>();
+	RegisterCommand<CmdPushRotationX>();
+	RegisterCommand<CmdPushRotationY>();
+	RegisterCommand<CmdPushRotationZ>();
+	RegisterCommand<CmdPushScaling>();
+	RegisterCommand<CmdPopMatrix>();
 }
 
 TextEditor::LanguageDefinition CommandDictionary::GenerateLanguageDefinition()

@@ -14,6 +14,7 @@
 #include "CmdShowViewport.h"
 #include "CmdSetClipping.h"
 #include "CmdMatrix.h"
+#include "CmdCamera.h"
 
 CommandDictionary* CommandDictionary::Get()
 {
@@ -53,6 +54,13 @@ CommandDictionary::CommandDictionary()
 	RegisterCommand<CmdPushRotationZ>();
 	RegisterCommand<CmdPushScaling>();
 	RegisterCommand<CmdPopMatrix>();
+
+	// Camera commands
+	RegisterCommand<CmdSetCameraPosition>();
+	RegisterCommand<CmdSetCameraDirection>();
+	RegisterCommand<CmdSetCameraNear>();
+	RegisterCommand<CmdSetCameraFar>();
+	RegisterCommand<CmdSetCameraFov>();
 }
 
 TextEditor::LanguageDefinition CommandDictionary::GenerateLanguageDefinition()

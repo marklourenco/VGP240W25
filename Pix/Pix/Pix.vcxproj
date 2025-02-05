@@ -175,6 +175,7 @@
     <ClCompile Include="Clipper.cpp" />
     <ClCompile Include="CmdAddVertex.cpp" />
     <ClCompile Include="CmdBeginDraw.cpp" />
+    <ClCompile Include="CmdCamera.cpp" />
     <ClCompile Include="CmdDrawPixel.cpp" />
     <ClCompile Include="CmdEndDraw.cpp" />
     <ClCompile Include="CmdMatrix.cpp" />
@@ -208,6 +209,7 @@
     <ClInclude Include="Clipper.h" />
     <ClInclude Include="CmdAddVertex.h" />
     <ClInclude Include="CmdBeginDraw.h" />
+    <ClInclude Include="CmdCamera.h" />
     <ClInclude Include="CmdDrawPixel.h" />
     <ClInclude Include="CmdEndDraw.h" />
     <ClInclude Include="CmdMatrix.h" />

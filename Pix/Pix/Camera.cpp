@@ -5,8 +5,8 @@ extern float gResolutionY;
 
 Camera* Camera::Get()
 {
-	static Camera* sInstance;
-	return sInstance;
+	static Camera sInstance;
+	return &sInstance;
 }
 
 void Camera::OnNewFrame()

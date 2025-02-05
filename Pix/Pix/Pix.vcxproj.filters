@@ -141,6 +141,9 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="CmdCamera.cpp">
+      <Filter>Commands</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextEditor.h">
@@ -232,6 +235,9 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="CmdCamera.h">
+      <Filter>Commands</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

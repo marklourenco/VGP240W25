@@ -76,6 +76,7 @@ void PointLight::SetAttenuation(float constant, float linear, float quadratic)
     mAttenQuad = quadratic;
 }
 
+
 // SPOTLIGHT
 X::Color SpotLight::ComputeLightColor(const Vector3& position, const Vector3& normal)
 {

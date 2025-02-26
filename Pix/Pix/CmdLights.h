@@ -61,7 +61,7 @@ const char* GetName() override
     {
         return "AddDirectionalLight(x, y, z)\n"
             "\n"
-            "- Add a directional light to the scene.";
+            "- Add a directional light to the light manager.";
     }
     bool Execute(const std::vector<std::string>& params) override;
 };
@@ -77,7 +77,23 @@ public:
     {
         return "AddPointLight(x, y, z, <constant>, <linear>, <quadratic>)\n"
             "\n"
-            "- Add a point light to the scene.";
+            "- Add a point light to the light manager.";
+    }
+    bool Execute(const std::vector<std::string>& params) override;
+};
+
+class CmdAddSpotLight : public Command
+{
+public:
+    const char* GetName() override
+    {
+        return "AddSpotLight";
+    }
+    const char* GetDescription() override
+    {
+        return "AddSpotLight(pX, pY, pZ, dX. dY, dZ, <constant>, <linear>, <quadratic>, <angle>, <decay>)\n"
+            "\n"
+            "- Add a spot light to the light manager.";
     }
     bool Execute(const std::vector<std::string>& params) override;
 };

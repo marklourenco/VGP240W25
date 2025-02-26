@@ -53,6 +53,20 @@ void LightManager::AddPointLight(const Vector3& position, float constant, float 
     mLights.emplace_back(std::move(light));
 }
 
+void LightManager::AddSpotLight(const Vector3& position, const Vector3& direction, float constant, float linear, float quadratic, float angle, float decay)
+{
+    auto light = std::make_unique<SpotLight>();
+    light->SetAmbient(mAmbient);
+    light->SetDiffuse(mDiffuse);
+    light->SetSpecular(mSpecular);
+    light->SetPosition(position);
+    light->SetDirection(direction);
+    light->SetAttenuation(constant, linear, quadratic);
+    light->SetAngle(angle);
+    light->SetDecay(decay);
+    mLights.emplace_back(std::move(light));
+}
+
 X::Color LightManager::ComputeLightColor(const Vector3& position, const Vector3& normal) const
 {
     // Ce + sum(Ca + Cd + Cs)

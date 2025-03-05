@@ -69,11 +69,17 @@ PrimitivesManager::PrimitivesManager()
 void PrimitivesManager::OnNewFrame()
 {
 	mCullMode = CullMode::Back;
+	mCorrectUV = false;
 }
 
 void PrimitivesManager::SetCullMode(CullMode mode)
 {
 		mCullMode = mode;
+}
+
+void PrimitivesManager::SetCorrectUV(bool correctUV)
+{
+	mCorrectUV = correctUV;
 }
 
 bool PrimitivesManager::BeginDraw(Topology topology, bool applyTransform)
@@ -161,20 +167,36 @@ bool PrimitivesManager::EndDraw()
 					}
 				}
 
-				// apply light to vertices
-				// lighting needs  to be calculated in world space (vertex lighting and pixel lighting)
-				if (shadeMode == ShadeMode::Flat)
+				// if color are UVs (z <0.0f) do not apply flat or gouraud shade mode lighting
+				// color is not a valid color
+				if (triangle[0].color.z >= 0.0f)
 				{
-					triangle[0].color *= LightManager::Get()->ComputeLightColor(triangle[0].pos, triangle[0].norm);
-					triangle[1].color = triangle[0].color;
-					triangle[2].color = triangle[0].color;
+				    // apply light to vertices
+				    // lighting needs  to be calculated in world space (vertex lighting and pixel lighting)
+				    if (shadeMode == ShadeMode::Flat)
+				    {
+				    	triangle[0].color *= LightManager::Get()->ComputeLightColor(triangle[0].pos, triangle[0].norm);
+				    	triangle[1].color = triangle[0].color;
+				    	triangle[2].color = triangle[0].color;
+				    }
+				    else if (shadeMode == ShadeMode::Gouraud)
+				    {
+				    	for (size_t t = 0; t < triangle.size(); t++)
+				    	{
+				    		triangle[t].color *= LightManager::Get()->ComputeLightColor(triangle[t].pos, triangle[t].norm);
+				    	}
+				    }
 				}
-				else if (shadeMode == ShadeMode::Gouraud)
+				else if (mCorrectUV)
 				{
+					// apply perspective uv correction in view space
 					for (size_t t = 0; t < triangle.size(); t++)
 					{
-						triangle[t].color *= LightManager::Get()->ComputeLightColor(triangle[t].pos, triangle[t].norm);
-					}
+                        Vector3 viewSpacePos = MathHelper::TransformCoord(triangle[t].pos, matView);
+						triangle[t].color.x /= viewSpacePos.z;
+						triangle[t].color.y /= viewSpacePos.z;
+						triangle[t].color.w = 1.0f / viewSpacePos.z;
+                    }
 				}
 
 				// transform position into NDC space

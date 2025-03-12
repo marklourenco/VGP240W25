@@ -38,6 +38,10 @@ SetCorrectUV($correctUV)
 SetUseFilter($useFilter)
 SetAddressMode(mirror)
 
+PostProcessingSetEffectType(fisheye)
+
+PostProcessingBeginDraw()
+
 BeginDraw(triangle, true)
 
 Vertex(-1, -1, 0, 0, 3, -1)
@@ -48,6 +52,12 @@ Vertex(1, 1, 0, 3, 0, -1)
 Vertex(1, -1, 0, 3, 3, -1)
 
 EndDraw()
+PostProcessingEndDraw()
+
+
+
+
+
 
 
 
